@@ -43,3 +43,22 @@ export const getFashionProducts = async () => {
     return [];
   }
 }
+
+export const searchProducts = async (query)=>{
+  try {
+    const word = query.trim().toLowerCase();
+    if (!word) {
+      return [];
+    }
+    const response = await fetch(`https://dummyjson.com/products/search?q=${word}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data  = await response.json()
+    return data.products || [];
+
+  }catch (error){
+    console.error('Error searching products:', error);
+    return [];
+  }
+}

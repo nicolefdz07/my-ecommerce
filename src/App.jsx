@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import { UserProgressContextProvider } from "./store/UserProgressContext.jsx";
 import { CartContextProvider } from "./store/CartContext.jsx";
+import { SearchProvider } from "./store/SearchContext.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,11 +23,13 @@ const router = createBrowserRouter(
 function App() {
   return (
     <div className={styles.gridContainer}>
-      <CartContextProvider>
-        <UserProgressContextProvider>
-          <RouterProvider router={router} />
-        </UserProgressContextProvider>
-      </CartContextProvider>
+      <SearchProvider>
+        <CartContextProvider>
+          <UserProgressContextProvider>
+            <RouterProvider router={router} />
+          </UserProgressContextProvider>
+        </CartContextProvider>
+      </SearchProvider>
     </div>
   );
 }

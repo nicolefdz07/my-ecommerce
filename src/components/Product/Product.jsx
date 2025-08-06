@@ -3,6 +3,8 @@ import CartContext from '../../store/CartContext';
 import Button from '../Button/Button.jsx';
 import { useContext } from 'react';
 
+
+
 export default function Product({ product }) {
   const cartCtx = useContext(CartContext);
 

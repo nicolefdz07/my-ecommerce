@@ -4,10 +4,10 @@ import App from "./App.jsx";
 
 // FontAwesome configuration
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // Add icons to the library
-library.add(faShoppingCart);
+library.add(faShoppingCart, faSearch);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

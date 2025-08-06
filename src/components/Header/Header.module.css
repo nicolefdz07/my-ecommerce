@@ -3,23 +3,87 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  
   height: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+}
+
+.searchInput {
+  border: 2px solid #e2e8f0;
+  border-radius: 8px 0 0 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.2s ease;
+  border-right: none;
+}
+
+.searchInput:focus {
+  outline: none;
   
-  input{
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    width: 50%;
-  }
-  input:focus{
-    outline: none;
-    
-  }
-  button{
-    border: none;
-    background-color: transparent;
-    font-size: 1.5rem;
-  }
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchButton {
+  border: 2px solid #e2e8f0;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  background-color: transparent;
+  color: #64748b;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  outline: none;
+}
+
+.searchButton:hover {
+  background-color: #f8fafc;
+  
+}
+
+.searchButton:focus {
+  outline: none;
+ 
+}
+
+.searchButton:active {
+  outline: none;
+}
+
+.cartButton {
+  border: none;
+  background-color: #10b981;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cartButton:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.cartButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
 }

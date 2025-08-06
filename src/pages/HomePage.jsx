@@ -15,7 +15,6 @@ export default function HomePage() {
 
         <main className={styles.productsArea}>
           <Products />
-          <div>PRODUCTOS</div>
         </main>
       </section>
     </div>
