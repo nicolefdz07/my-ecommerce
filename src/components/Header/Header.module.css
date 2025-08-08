@@ -1,11 +1,11 @@
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   height: 80px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .searchContainer {
@@ -28,7 +28,7 @@
 
 .searchInput:focus {
   outline: none;
-  
+
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
@@ -51,12 +51,10 @@
 
 .searchButton:hover {
   background-color: #f8fafc;
-  
 }
 
 .searchButton:focus {
   outline: none;
- 
 }
 
 .searchButton:active {
@@ -64,9 +62,9 @@
 }
 
 .cartButton {
-  border: none;
-  background-color: #10b981;
-  color: white;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  color: #374151;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -75,15 +73,42 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 500;
 }
 
 .cartButton:hover {
-  background-color: #059669;
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cartButton:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+  background-color: #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* En tu Header.module.css */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoText {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: -0.5px;
+}
+
+.logoText::after {
+  content: "🛍️";
+  margin-left: 0.5rem;
 }

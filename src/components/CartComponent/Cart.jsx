@@ -11,14 +11,13 @@ export default function Cart() {
   const cartCtx = useContext(CartContext);
 
   const cartTotal = cartCtx.products.reduce((totalPrice, product) => {
-    return totalPrice + product.price + product.quantity;
+    return totalPrice + product.price * product.quantity;
   }, 0);
 
   const handleCloseCart = () => {
     userProgressCtx.hideCart();
   };
   
-
   // const handleGoCheckOut = ()=>{
   //   userProgressCtx.showCheckout();
   // }
@@ -33,7 +32,6 @@ export default function Cart() {
         {!cartCtx.products.length && <div className={styles.emptyCartIcon}>🛒</div>}
         {!cartCtx.products.length && <p className={styles.emptyMessage}>Your cart is empty</p>}
         {!cartCtx.products.length && <p>¡Add some incredible products to begin!</p>}
-        {/* aqui se mostraran los productos del carrito */}
         <ul>
           {cartCtx.products.map((product)=>(
           <CartProduct key={product.id}

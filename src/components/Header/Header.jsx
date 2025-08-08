@@ -6,7 +6,6 @@ import { useRef } from "react";
 import SearchContext from "../../store/SearchContext.jsx";
 
 export default function Header() {
-  // const { query, handleChangeQuery, fetchSearchProducts } = useSearchProducts();
   const userProgressCtx = useContext(UserProgressContext);
   const {query, fetchSearchProducts, handleChangeQuery} = useContext(SearchContext);
   const input = useRef(null);
@@ -18,7 +17,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <h1>LOGO</h1>
+      <div className={styles.logo}>
+        <span className={styles.logoText}>ShopHub</span>
+      </div>
       <div className={styles.searchContainer}>
         <input 
           type="text" 
@@ -43,3 +44,4 @@ export default function Header() {
     </header>
   );
 }
+

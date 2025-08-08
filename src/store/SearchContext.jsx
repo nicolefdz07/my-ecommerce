@@ -6,7 +6,9 @@ const SearchContext = createContext();
 export const SearchProvider = ({children})=>{
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]); 
 
   const handleChangeQuery = (event) => {
     const newQuery = event.target.value;
@@ -19,6 +21,7 @@ export const SearchProvider = ({children})=>{
     setIsLoading(true);
     const searchResults = await searchProducts(query);
     setResults(searchResults);
+    setFilteredProducts(searchResults);
     setIsLoading(false);
     console.log('🔥 Search results:', searchResults);
   }
@@ -27,6 +30,15 @@ export const SearchProvider = ({children})=>{
     setQuery('');
     setResults([]);
   }
+  const updateProductsInContext = (newProducts)=>{
+    setProducts(newProducts);
+    setFilteredProducts(newProducts);
+    console.log('Productos actualizados en el contexto:', newProducts);
+  }
+  const updateFilteredProducts = (newProducts) => {
+    setFilteredProducts(newProducts);
+    console.log('Productos filtrados actualizados en el contexto:', newProducts);
+  };
 
   const searchCtx = {
     query,
@@ -34,7 +46,11 @@ export const SearchProvider = ({children})=>{
     isLoading,
     handleChangeQuery,
     fetchSearchProducts,
-    clearSearch
+    clearSearch,
+    products,
+    updateProductsInContext,
+    filteredProducts,
+    updateFilteredProducts
   };
 
   return (

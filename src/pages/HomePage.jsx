@@ -1,3 +1,4 @@
+import Filters from "../components/filters/Filters.jsx";
 import Hero from "../components/Hero/Hero.jsx";
 import styles from "../components/Hero/HomePage.module.css";
 import Products from "../components/products/Products.jsx";
@@ -8,9 +9,8 @@ export default function HomePage() {
       {/* <ProductsSection  and sidebar/> */}
       <section className={styles.ProductsSection}>
         <aside className={styles.filtersSideBar}>
-        {/* filtros */}
-        
-        <div>FILTROS</div>
+          {/* filtros */}
+          <Filters />
         </aside>
 
         <main className={styles.productsArea}>

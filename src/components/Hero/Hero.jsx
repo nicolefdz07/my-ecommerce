@@ -11,9 +11,9 @@ export default function Hero() {
       </div>
       <div className={styles.heroText}>
         <h1>
-          Simple is
+          Discover your
           <br />
-          more
+          Style
         </h1>
       </div>
     </article>

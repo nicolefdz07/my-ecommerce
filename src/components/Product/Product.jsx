@@ -25,10 +25,10 @@ export default function Product({ product }) {
       <p className={styles.productPrice}>${product.price}</p>
       <p className={styles.productDescription}>{product.description}</p>
       <Button 
-        variant="primary"
+        variant="secondary"
         onClick={addProductToCart}
       >
-        🛒 Agregar al Carrito
+        Add to cart
       </Button>
     </div>
   );
