@@ -23,16 +23,12 @@ export default function Products() {
   useEffect(() => {
     if (results.length > 0) {
       updateProductsInContext(results);
-      console.log(
-        "Productos actualizados con resultados de búsqueda:",
-        results
-      );
     }
   }, [results, updateProductsInContext]);
 
   return (
     <div className={styles.productsGrid}>
-      {isLoading && <div>Cargando productos...</div>}
+      {isLoading && <div>Loading products...</div>}
       {!isLoading &&
         filteredProducts.map((product) => (
           <Product key={product.id} product={product} />

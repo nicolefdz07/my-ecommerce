@@ -62,3 +62,18 @@ export const searchProducts = async (query)=>{
     return [];
   }
 }
+
+// Get a product by its ID
+export const getProductById = async (id) => {
+  try {
+    const response = await fetch(`https://dummyjson.com/products/${id}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching product by ID:', error);
+    return null;
+  }
+}

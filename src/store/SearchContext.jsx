@@ -23,7 +23,7 @@ export const SearchProvider = ({children})=>{
     setResults(searchResults);
     setFilteredProducts(searchResults);
     setIsLoading(false);
-    console.log('🔥 Search results:', searchResults);
+    
   }
 
   const clearSearch = () => {
