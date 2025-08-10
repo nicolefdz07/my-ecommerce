@@ -13,7 +13,6 @@ export default function Product({ product }) {
 
   return (
     <article className={styles.productCard}>
-      {/* ← Solo envuelve la imagen en Link */}
       <Link to={`/product/${product.id}`}>
         <img
           src={product.thumbnail}

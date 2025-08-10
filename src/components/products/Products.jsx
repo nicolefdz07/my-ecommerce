@@ -5,7 +5,7 @@ import Product from "../Product/Product.jsx";
 import SearchContext from "../../store/SearchContext.jsx";
 
 export default function Products() {
-  const { results, updateProductsInContext, filteredProducts } =
+  const {  updateProductsInContext, filteredProducts } =
     useContext(SearchContext);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -14,17 +14,17 @@ export default function Products() {
     const fetchProducts = async () => {
       setIsLoading(true);
       const data = await getFashionProducts();
-      updateProductsInContext(data);
+      updateProductsInContext(data); // save the results found in filteredProducts
       setIsLoading(false);
     };
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    if (results.length > 0) {
-      updateProductsInContext(results);
-    }
-  }, [results, updateProductsInContext]);
+  // useEffect(() => {
+  //   if (results.length > 0) {
+  //     updateProductsInContext(results);
+  //   }
+  // }, [results, updateProductsInContext]);
 
   return (
     <div className={styles.productsGrid}>

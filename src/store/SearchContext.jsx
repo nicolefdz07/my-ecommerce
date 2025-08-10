@@ -33,11 +33,11 @@ export const SearchProvider = ({children})=>{
   const updateProductsInContext = (newProducts)=>{
     setProducts(newProducts);
     setFilteredProducts(newProducts);
-    console.log('Productos actualizados en el contexto:', newProducts);
+    
   }
   const updateFilteredProducts = (newProducts) => {
     setFilteredProducts(newProducts);
-    console.log('Productos filtrados actualizados en el contexto:', newProducts);
+    
   };
 
   const searchCtx = {

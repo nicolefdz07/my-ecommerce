@@ -1,61 +1,69 @@
-import { useContext, useEffect, useState, useCallback } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import SearchContext from "../../store/SearchContext";
 import styles from "./Filters.module.css";
 
 export default function Filters() {
-  const { products, updateFilteredProducts } = useContext(SearchContext);
+  const { products, updateFilteredProducts, results } =
+    useContext(SearchContext);
   const [filters, setFilters] = useState({
-    category: 'all',
+    category: "all",
     minPrice: 0,
-    
   });
 
   const handleChangePriceRange = (event) => {
-    const newPriceRange = event.target.value;
+    const newPriceRange = Number(event.target.value);
     setFilters((prevFilters) => ({
       ...prevFilters,
-      minPrice: newPriceRange
+      minPrice: newPriceRange,
     }));
-  };  
+  };
 
-  const handleChangeCategory = (event)=>{
+  const handleChangeCategory = (event) => {
     const newCategory = event.target.value;
     setFilters((prevFilters) => ({
       ...prevFilters,
-      category: newCategory
+      category: newCategory,
     }));
+  };
 
-  }
-
-  const filterProducts = useCallback((products) => {
-    return products.filter((product) => {
-      return (product.price >= filters.minPrice &&
-        (filters.category === 'all' || product.category === filters.category)
-      );
-    });
-  }, [filters]);
+  const filterProducts = useCallback(
+    (products) => {
+      return products.filter((product) => {
+        return (
+          product.price >= Number(filters.minPrice) &&
+          (filters.category === "all" || product.category === filters.category)
+        );
+      });
+    },
+    [filters]
+  );
 
   useEffect(() => {
-    const filtered = filterProducts(products);  
-    updateFilteredProducts(filtered);
-    console.log('Productos filtrados:', filtered);
-  }, [filters]);
+
+    // se ejecuta cada vez que se aplica un filtro
+    const sourceProducts = results.length > 0 ? results : products;
+    
+    if (sourceProducts && sourceProducts.length > 0) {
+      const filtered = filterProducts(sourceProducts);
+      updateFilteredProducts(filtered);
+    }
+  }, [filters, products, results]);
 
   return (
     <section className={styles.filters}>
       <h2> Filters</h2>
-      
+
       <div className={styles.filterGroup}>
         <label className={styles.filterLabel} htmlFor="price">
-           Price
+          Price
         </label>
-        <input 
-          type="range" 
-          id="price" 
-          min="0" 
-          max="5000" 
-          step="10" 
-          value={filters.minPrice} 
+        <input
+          type="range"
+          id="price"
+          min="0"
+          max="5000"
+          step="10"
+          value={filters.minPrice}
           onChange={handleChangePriceRange}
           className={styles.priceRange}
         />
@@ -64,7 +72,7 @@ export default function Filters() {
 
       <div className={styles.filterGroup}>
         <label className={styles.filterLabel} htmlFor="category">
-           Category
+          Category
         </label>
         <select
           id="category"
@@ -72,13 +80,13 @@ export default function Filters() {
           onChange={handleChangeCategory}
           className={styles.categorySelect}
         >
-          <option value="all"> All</option>
-          <option value="beauty"> Beauty</option>
-          <option value="fragrances"> Fragances</option>
-          <option value="laptops"> Laptops</option>
-          <option value="smartphones"> Smartphones</option>
-          <option value="womens-dresses"> Dresses</option>
-          <option value="mens-shirts"> Men Shirts</option>
+          <option value="all">All</option>
+          <option value="beauty">Beauty</option>
+          <option value="fragrances">Fragances</option>
+          <option value="laptops">Laptops</option>
+          <option value="smartphones">Smartphones</option>
+          <option value="womens-dresses">Dresses</option>
+          <option value="mens-shirts">Men Shirts</option>
         </select>
       </div>
     </section>
